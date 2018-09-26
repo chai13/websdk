@@ -4,7 +4,7 @@ var CryptoJS = require('crypto-js');
 
     var _utils = require('./utils').utils;
     var Message = function (type, id) {
-        if (!this instanceof Message) {
+        if (!(this instanceof Message)) {
             return new Message(type);
         }
 
@@ -234,14 +234,14 @@ var CryptoJS = require('crypto-js');
 
     var _Message = function (message) {
 
-        if (!this instanceof _Message) {
+        if (!(this instanceof _Message)) {
             return new _Message(message, conn);
         }
 
         this.msg = message;
     };
 
-    _Message.prototype.send = function (conn) {
+    _Message.prototype.send = function (conn, _msgHash) {
         var me = this;
 
         var _send = function (message) {
